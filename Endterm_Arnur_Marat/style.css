@@ -554,7 +554,7 @@ input, select {
  form { padding: 22px; }
  th, td { padding: 15px 10px; font-size: .85rem; }
 }
-/* Endterm interactive features */
+
 .filters { display:flex; gap:12px; flex-wrap:wrap; margin:18px 0; }
 .filters [aria-pressed="true"] { background:var(--accent); color:var(--ink); }
 .feedback { display:block; font-size:.85rem; margin-top:6px; min-height:1.4em; }
@@ -572,3 +572,39 @@ meter { width:100%; height:18px; }
 .lightbox-controls p { margin:0; }
 td .btn { padding:8px; margin:3px; }
 [hidden] { display:none !important; }
+
+.account-tools { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.account-tools .btn { padding:9px 12px; }
+.user-greeting { max-width:150px; overflow-wrap:anywhere; font-size:.85rem; }
+.header-inner { flex-wrap:wrap; }
+.account-section > p { max-width:700px; }
+#profile-panel, .currency-section { border-top:1px solid var(--line); }
+#profile-panel { padding-top:25px; }
+.currency-toolbar { display:flex; align-items:end; gap:20px; flex-wrap:wrap; }
+.currency-toolbar > div { min-width:230px; }
+#currency-status { margin:18px 0; }
+#currency-table-wrap { margin:22px 0; }
+#rate-details { overflow-wrap:anywhere; }
+#currency-rows th { overflow-wrap:anywhere; }
+.faq-item { border-bottom:1px solid var(--line); }
+.faq-item h3 { margin:0; font-size:1rem; letter-spacing:0; }
+.faq-question { display:flex; justify-content:space-between; gap:24px; width:100%; padding:22px 0; border:0; background:transparent; color:var(--ink); text-align:left; font:inherit; font-weight:bold; cursor:pointer; }
+.faq-indicator { font-size:1.4rem; line-height:1; }
+.faq-answer p { margin:0; padding:0 0 22px; max-width:850px; }
+html { color-scheme:light; }
+html[data-theme="dark"] { color-scheme:dark; --ink:#f2f4eb; --paper:#171918; --muted:#bdc4b5; --line:#444b40; }
+[data-theme="dark"] .btn { background:#dfef69; color:#171918; border-color:#dfef69; }
+[data-theme="dark"] .btn:hover { background:#eff7b1; }
+[data-theme="dark"] .btn:disabled { background:#4b5346; color:#e1e6db; }
+[data-theme="dark"] .strip, [data-theme="dark"] .visit-card, [data-theme="dark"] .values-grid article:nth-child(2), [data-theme="dark"] .image-label { color:#171918; }
+[data-theme="dark"] .contact-note, [data-theme="dark"] tbody tr:nth-child(even) { background:#252b23; }
+[data-theme="dark"] thead { background:#323a2e; color:#f2f4eb; }
+[data-theme="dark"] footer { background:#0c0f0b; color:#f2f4eb; }
+[data-theme="dark"] a:hover { color:#dfef69; }
+[data-theme="dark"] .success { color:#b1df96; }
+[data-theme="dark"] .error { color:#ffabae; }
+[data-theme="dark"] select option { background:#171918; color:#f2f4eb; }
+[data-theme="dark"] .filters [aria-pressed="true"] { background:#f2f4eb; }
+@media (max-width:991px) { .account-tools { margin-left:auto; } }
+@media (max-width:575px) { .account-tools { margin:0; justify-content:center; } .currency-toolbar > div, .currency-toolbar .btn { width:100%; } }
+@media (prefers-reduced-motion:reduce) { *, *::before, *::after { scroll-behavior:auto !important; } }

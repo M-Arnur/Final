@@ -2,11 +2,13 @@
 <html>
 <head>
     <title>Contact | LINE Barber Studio</title>
+    <script src="js/theme.js"></script>
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 
     <script src="js/jquery.min.js" defer></script>
     <script src="js/script.js" defer></script>
+    <script src="js/final.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -22,6 +24,12 @@
             <a href="gallery.html">Gallery</a>
             <a href="contact.html" aria-current="page">Contact</a>
         </nav>
+        <div class="account-tools">
+            <button class="btn theme-toggle" type="button" aria-pressed="false">Dark theme</button>
+            <a class="text-link sign-in-link" href="contact.html#sign-in">Sign in</a>
+            <span class="user-greeting" hidden></span>
+            <button class="btn sign-out" type="button" hidden>Sign out</button>
+        </div>
         <a class="btn booking" href="contact.html#booking">Book a visit</a>
     </div>
 </header>
@@ -31,6 +39,46 @@
         <p class="eyebrow">CONTACT & BOOKING</p>
         <h1>Make time<br>for a fresh cut.</h1>
         <p class="lead">Choose a service and your preferred time below.</p>
+    </section>
+    <section class="container section account-section">
+        <div class="section-head"><div><p class="eyebrow">YOUR STUDIO PROFILE</p><h2>Welcome back.</h2></div></div>
+        <form id="sign-in" novalidate>
+            <div class="form-grid">
+                <div><label for="login-name">Display name</label><input id="login-name" autocomplete="nickname" maxlength="60" required aria-describedby="login-name-error"><span class="feedback error" id="login-name-error" aria-live="polite"></span></div>
+                <div><label for="login-email">Email</label><input id="login-email" type="email" autocomplete="email" maxlength="120" required aria-describedby="login-email-error"><span class="feedback error" id="login-email-error" aria-live="polite"></span></div>
+            </div>
+            <button class="btn" type="submit">Sign in</button>
+        </form>
+        <div id="profile-panel" hidden><h3 id="profile-title"></h3><p>Your local profile is ready.</p><button class="btn sign-out" type="button">Sign out</button></div>
+        <p id="login-status" role="status"></p>
+    </section>
+    <section class="container section currency-section" aria-labelledby="currency-title">
+        <p class="eyebrow">SERVICES & PRICES</p>
+        <h2 id="currency-title">View prices in your currency.</h2>
+        <p>Choose KZT, USD or EUR to compare the cost of our services.</p>
+        <div class="currency-toolbar">
+            <div>
+                <label for="price-currency">Display currency</label>
+                <select id="price-currency">
+                    <option value="KZT">KZT — Kazakhstani tenge</option>
+                    <option value="USD">USD — US dollar</option>
+                    <option value="EUR">EUR — Euro</option>
+                </select>
+            </div>
+            <button class="btn" id="refresh-rates" type="button">Load exchange rates</button>
+        </div>
+        <p id="currency-status" role="status" aria-live="polite">Prices are shown in KZT. Choose USD or EUR to load exchange rates.</p>
+        <div class="table-wrap" id="currency-table-wrap" aria-busy="false">
+            <table>
+                <caption>Service price comparison</caption>
+                <thead><tr><th scope="col">Service</th><th scope="col">Base price (KZT)</th><th scope="col" id="converted-price-heading">Price (KZT)</th></tr></thead>
+                <tbody id="currency-rows"></tbody>
+            </table>
+        </div>
+        <p id="rate-details" class="credits"></p>
+        <p class="credits">Converted prices are estimates. Payment prices remain in KZT. Rates are updated daily by the provider.</p>
+        <p class="credits"><a href="https://www.exchangerate-api.com" target="_blank" rel="noopener">Rates By Exchange Rate API</a></p>
+        <noscript><p>Enable JavaScript to display the price comparison. Base prices are available on the Services page.</p></noscript>
     </section>
     <section class="container section contact-grid">
         <aside>
@@ -104,7 +152,7 @@
                 <div>
                     <label for="password">Password</label>
                     <input id="password" type="password" autocomplete="new-password" required minlength="8" aria-describedby="password-help">
-                    <p id="password-help">Use at least 8 characters, uppercase and lowercase letters, a number and a symbol.</p>
+                    <p id="password-help">Use at least 8 characters and two character types. For a strong password, use 12+ characters with uppercase, lowercase, numbers and symbols.</p>
                     <meter id="strength" min="0" max="3" value="0" aria-label="Password strength"></meter>
                     <p id="strength-label" role="status">Enter a password</p>
                 </div>

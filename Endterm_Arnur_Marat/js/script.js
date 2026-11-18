@@ -52,21 +52,27 @@ $(function () {
         });
     }
 
+    let services = [
+        {id:1, name:'Signature haircut', category:'hair', duration:45, price:6000},
+        {id:2, name:'Skin fade', category:'hair', duration:50, price:6500},
+        {id:3, name:'Beard shape', category:'beard', duration:30, price:3000},
+        {id:4, name:'Cut + beard', category:'combo', duration:75, price:8000},
+        {id:5, name:'Classic shave', category:'beard', duration:30, price:3500},
+        {id:6, name:'Junior cut (under 12)', category:'hair', duration:35, price:4000}
+    ];
+    try {
+        const saved = JSON.parse(localStorage.getItem('line-services'));
+        if (Array.isArray(saved) && saved.every(function (s) {
+            return s && Number.isFinite(s.id) && typeof s.name === 'string' && ['hair','beard','combo'].includes(s.category) && Number.isFinite(s.duration) && s.duration >= 5 && s.duration <= 240 && Number.isFinite(s.price) && s.price >= 0 && s.price <= 1000000;
+        }) && new Set(saved.map(s => s.id)).size === saved.length) services = saved;
+    } catch (error) {}
+    window.LINEBarber = {
+        getServices: function () {
+            return services.map(function (service) { return Object.assign({}, service); });
+        }
+    };
+
     if ($('#service-rows').length) {
-        let services = [
-            {id:1, name:'Signature haircut', category:'hair', duration:45, price:6000},
-            {id:2, name:'Skin fade', category:'hair', duration:50, price:6500},
-            {id:3, name:'Beard shape', category:'beard', duration:30, price:3000},
-            {id:4, name:'Cut + beard', category:'combo', duration:75, price:8000},
-            {id:5, name:'Classic shave', category:'beard', duration:30, price:3500},
-            {id:6, name:'Junior cut (under 12)', category:'hair', duration:35, price:4000}
-        ];
-        try {
-            const saved = JSON.parse(localStorage.getItem('line-services'));
-            if (Array.isArray(saved) && saved.every(function (s) {
-                return s && Number.isFinite(s.id) && typeof s.name === 'string' && ['hair','beard','combo'].includes(s.category) && Number.isFinite(s.duration) && s.duration >= 5 && s.duration <= 240 && Number.isFinite(s.price) && s.price >= 0 && s.price <= 1000000;
-            }) && new Set(saved.map(s => s.id)).size === saved.length) services = saved;
-        } catch (error) { /* Defaults remain available when storage is blocked. */ }
         let category = 'all';
         let editing = null;
         function render() {

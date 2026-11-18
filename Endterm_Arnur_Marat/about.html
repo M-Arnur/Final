@@ -2,11 +2,13 @@
 <html>
 <head>
     <title>About | LINE Barber Studio</title>
+    <script src="js/theme.js"></script>
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     
     <script src="js/jquery.min.js" defer></script>
     <script src="js/script.js" defer></script>
+    <script src="js/final.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -22,6 +24,12 @@
             <a href="gallery.html">Gallery</a>
             <a href="contact.html">Contact</a>
         </nav>
+        <div class="account-tools">
+            <button class="btn theme-toggle" type="button" aria-pressed="false">Dark theme</button>
+            <a class="text-link sign-in-link" href="contact.html#sign-in">Sign in</a>
+            <span class="user-greeting" hidden></span>
+            <button class="btn sign-out" type="button" hidden>Sign out</button>
+        </div>
         <a class="btn booking" href="contact.html#booking">Book a visit</a>
     </div>
 </header>
