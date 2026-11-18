@@ -1,23 +1,39 @@
-# LINE Barber Studio — Local Business Website
+# LINE Barber Studio
 
-Name: Arnur Marat
-Group: SE-2540
+A responsive five-page barber studio website developed for the Endterm and Final Project.
 
-A responsive five-page student concept for a barber studio in Astana.
+**Group:** SE-2540  
+**Member:** Arnur Marat  
+Add the other original group members and their actual contributions before submission.
 
 ## Pages
-- Home: introduction and featured services.
-- About: studio concept and values.
-- Services: pricing table and HTML details and summary.
-- Gallery: reference photo moodboard with source credits.
-- Contact: opening hours and demonstration booking form.
+Home, About, Services, Gallery and Contact.
 
-## Technologies and features
-HTML semantic header, main and footer, external CSS, Flexbox navigation, CSS Grid layouts, locally included Bootstrap CSS grid and utilities, CSS variables, hover/focus states, nth-child selectors, relative/absolute positioning, lazy-loaded images and media queries for other devices.
+## Features
+- Light/dark theme saved in localStorage.
+- Validated demo sign-in, persistent profile and sign-out.
+- Registration/visit form validation with password strength and confirmation.
+- Live service search and category filters.
+- Service CRUD with browser storage.
+- Image lightbox with navigation and fade effects.
+- FAQ with jQuery slideToggle animations.
+- Service prices in KZT, USD and EUR using ExchangeRate-API, with refresh and error handling.
 
-## Endterm enhancements
-- Contact: registration and visit form, required fields, email RegEx, password strength meter, password confirmation and live feedback. Invalid submission is blocked. Demo only; passwords are never stored or sent.
-- Services: case-insensitive live search combined with category buttons; dynamic table with add, read, edit, delete confirmation and localStorage persistence where available.
-- Gallery: keyboard-accessible lightbox with previous/next arrows, Escape to close and jQuery fade effects.
-- Added UTF-8 and mobile viewport metadata to all pages; restored image folder paths and replaced the missing booking script.
+## Technologies
+HTML5, CSS3, Bootstrap, JavaScript, jQuery, localStorage and Fetch API.
 
+## Run
+Open `index.html`. Internet access is required for currency conversion. KZT prices work offline. Sign-in and booking are demonstrations; no real account or appointment is created. Passwords are not stored.
+
+## Links
+- [GitHub repository](https://github.com/M-Arnur/Endterm)
+- [Published website](https://m-arnur.github.io/Endterm/Endterm_Arnur_Marat/)
+
+## Contributions
+- Arnur Marat: add actual responsibilities.
+- Other original group members: add names and actual responsibilities.
+
+## Credits
+[Rates By Exchange Rate API](https://www.exchangerate-api.com). Converted prices are estimates; base prices remain in KZT.
+
+ChatGPT assisted with code, debugging and documentation. The team is responsible for reviewing, testing and understanding the submitted work.
